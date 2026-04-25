@@ -265,7 +265,7 @@ function Navbar() {
           </button>
         </div>
 
-        <button className="mobile-menu-btn" aria-label="Toggle menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{
+        <button className="mobile-menu-btn" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)} style={{
           display: "none", background: "none", border: "none", cursor: "pointer",
           flexDirection: "column", gap: 5, padding: 4,
         }}>
@@ -335,7 +335,6 @@ function Hero() {
       }} />
 
       <motion.div style={{ y, opacity, position: "relative", zIndex: 1, maxWidth: 900 }}>
-        {/* Available badge */}
         <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{
@@ -351,7 +350,6 @@ function Hero() {
           AVAILABLE FOR WORK
         </motion.div>
 
-        {/* Name */}
         <div style={{
           fontFamily: "'Syne',serif", fontSize: "clamp(52px,10vw,110px)",
           fontWeight: 800, lineHeight: 0.95, letterSpacing: "-0.04em", marginBottom: 22,
@@ -367,7 +365,6 @@ function Hero() {
           ))}
         </div>
 
-        {/* Tagline */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
           style={{
@@ -381,7 +378,6 @@ function Hero() {
           </span>
         </motion.div>
 
-        {/* Education pill */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.85 }}
           style={{
@@ -405,7 +401,6 @@ function Hero() {
           I build scalable web applications with modern technologies — from interactive frontends to robust APIs.
         </motion.p>
 
-        {/* CTAs */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.05 }}
           style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
@@ -445,7 +440,6 @@ function Hero() {
           </a>
         </motion.div>
 
-        {/* Scroll line */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 1 }}
           style={{ position: "absolute", bottom: -120, left: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -453,7 +447,6 @@ function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Floating code snippet */}
       <motion.div initial={{ opacity: 0, x: 60 }} animate={{ opacity: 0.12, x: 0 }}
         transition={{ duration: 1, delay: 1.2 }} className="code-deco"
         style={{
@@ -484,6 +477,8 @@ function Hero() {
 function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const [imgError, setImgError] = useState(false);
+
   const stats = [
     { label: "Projects Built", value: "4+" },
     { label: "Technologies", value: "10+" },
@@ -500,6 +495,8 @@ function About() {
         </motion.div>
 
         <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "start" }}>
+
+          {/* ── LEFT: Text + Quick Links ── */}
           <motion.div variants={fadeUp}>
             <p style={{ fontSize: 17, color: colors.textDim, lineHeight: 1.85, marginBottom: 24, fontFamily: "'DM Sans',sans-serif" }}>
               I'm a passionate full-stack developer currently pursuing my{" "}
@@ -540,24 +537,114 @@ function About() {
             </div>
           </motion.div>
 
+          {/* ── RIGHT: Photo + Stats + Tags ── */}
           <motion.div variants={fadeUp} custom={1}>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, marginBottom: 32 }}>
+
+            {/* ── PROFILE PHOTO ── */}
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 36 }}>
+              <motion.div
+                whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                style={{ position: "relative", display: "inline-block" }}
+              >
+                {/* Outer glow ring */}
+                <div style={{
+                  position: "absolute", inset: -3,
+                  borderRadius: "50%",
+                  background: `conic-gradient(${colors.cyan}, ${colors.purple}, ${colors.cyan})`,
+                  animation: "spinRing 6s linear infinite",
+                  zIndex: 0,
+                }} />
+                {/* White gap ring */}
+                <div style={{
+                  position: "absolute", inset: -1,
+                  borderRadius: "50%",
+                  background: colors.bg,
+                  zIndex: 1,
+                }} />
+                {/* Photo */}
+                <div style={{
+                  width: 180, height: 180,
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  position: "relative",
+                  zIndex: 2,
+                  boxShadow: `0 0 40px ${colors.cyanDim}, 0 0 80px ${colors.cyanDim}`,
+                }}>
+                  {!imgError ? (
+                    <img
+                      src="/bikash.png"
+                      alt="Bikash Yadav"
+                      onError={() => setImgError(true)}
+                      style={{
+                        width: "100%", height: "100%",
+                        objectFit: "cover", objectPosition: "center top",
+                        display: "block",
+                      }}
+                    />
+                  ) : (
+                    /* Fallback avatar if image not found */
+                    <div style={{
+                      width: "100%", height: "100%",
+                      background: `linear-gradient(135deg, ${colors.cyanDim}, ${colors.surface})`,
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontFamily: "'Syne',serif", fontSize: 56, fontWeight: 800, color: colors.cyan,
+                    }}>
+                      BY
+                    </div>
+                  )}
+                </div>
+
+                {/* Status badge on photo */}
+                <div style={{
+                  position: "absolute", bottom: 8, right: 4, zIndex: 3,
+                  background: colors.bg, border: `1px solid ${colors.border}`,
+                  borderRadius: 100, padding: "4px 10px",
+                  display: "flex", alignItems: "center", gap: 5,
+                }}>
+                  <span style={{
+                    width: 7, height: 7, borderRadius: "50%",
+                    background: colors.green,
+                    boxShadow: `0 0 8px ${colors.green}`,
+                    display: "inline-block",
+                    animation: "pulse 2s infinite",
+                  }} />
+                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: colors.green, letterSpacing: "0.08em" }}>
+                    Open to work
+                  </span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* ── Name under photo ── */}
+            <div style={{ textAlign: "center", marginBottom: 32 }}>
+              <div style={{ fontFamily: "'Syne',serif", fontSize: 22, fontWeight: 800, color: colors.text, letterSpacing: "-0.02em" }}>
+                Bikash Yadav
+              </div>
+              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, color: colors.textMuted, marginTop: 4, letterSpacing: "0.05em" }}>
+                Full Stack Developer
+              </div>
+            </div>
+
+            {/* ── Stats ── */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, marginBottom: 24 }}>
               {stats.map((s) => (
                 <div key={s.label} style={{
                   background: colors.surface, border: `1px solid ${colors.border}`,
-                  borderRadius: 8, padding: "24px 16px", textAlign: "center",
+                  borderRadius: 8, padding: "20px 12px", textAlign: "center",
                 }}>
-                  <div style={{ fontFamily: "'Syne',serif", fontSize: 36, fontWeight: 800, color: colors.cyan, letterSpacing: "-0.02em" }}>{s.value}</div>
-                  <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 10, color: colors.textMuted, letterSpacing: "0.1em", marginTop: 6, textTransform: "uppercase" }}>{s.label}</div>
+                  <div style={{ fontFamily: "'Syne',serif", fontSize: 32, fontWeight: 800, color: colors.cyan, letterSpacing: "-0.02em" }}>{s.value}</div>
+                  <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 9, color: colors.textMuted, letterSpacing: "0.1em", marginTop: 6, textTransform: "uppercase" }}>{s.label}</div>
                 </div>
               ))}
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+
+            {/* ── Tags ── */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
               {["API Design", "Auth Systems", "Database Schema", "React UI", "Clean Code", "Problem Solving", "System Design", "Agile"].map((tag) => (
                 <span key={tag} style={{
                   background: colors.cyanDim, border: `1px solid ${colors.cyanMid}`,
-                  color: colors.cyan, padding: "6px 14px", borderRadius: 100,
-                  fontFamily: "'JetBrains Mono',monospace", fontSize: 11, letterSpacing: "0.05em",
+                  color: colors.cyan, padding: "5px 12px", borderRadius: 100,
+                  fontFamily: "'JetBrains Mono',monospace", fontSize: 10, letterSpacing: "0.05em",
                 }}>
                   {tag}
                 </span>
@@ -566,7 +653,11 @@ function About() {
           </motion.div>
         </div>
       </motion.div>
-      <style>{`@media (max-width:768px){.about-grid{grid-template-columns:1fr !important}}`}</style>
+
+      <style>{`
+        @media (max-width:768px){.about-grid{grid-template-columns:1fr !important}}
+        @keyframes spinRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      `}</style>
     </section>
   );
 }
@@ -589,7 +680,6 @@ function Education() {
         </motion.div>
 
         <div style={{ position: "relative" }}>
-          {/* Timeline vertical line */}
           <div style={{
             position: "absolute", left: 27, top: 0, bottom: 0, width: 1,
             background: `linear-gradient(to bottom, ${colors.cyan}, ${colors.purple}, transparent)`,
@@ -599,7 +689,6 @@ function Education() {
             {EDUCATION.map((edu, i) => (
               <motion.div key={edu.institution} variants={fadeUp} custom={i}>
                 <div style={{ display: "flex", gap: 28, alignItems: "flex-start" }}>
-                  {/* Dot icon */}
                   <div style={{ flexShrink: 0, position: "relative", zIndex: 1 }}>
                     <div style={{
                       width: 56, height: 56, borderRadius: 12,
@@ -611,7 +700,6 @@ function Education() {
                     </div>
                   </div>
 
-                  {/* Card */}
                   <motion.div whileHover={{ y: -4, transition: { duration: 0.2 } }} style={{
                     flex: 1, background: colors.surface, border: `1px solid ${colors.border}`,
                     borderRadius: 14, padding: 32, position: "relative", overflow: "hidden",
@@ -656,7 +744,6 @@ function Education() {
                         </div>
                       </div>
 
-                      {/* Degree badge */}
                       <div style={{
                         background: `${edu.color}12`, border: `1px solid ${edu.color}33`,
                         borderRadius: 10, padding: "16px 20px", textAlign: "center", minWidth: 90,
@@ -718,7 +805,6 @@ function Skills() {
           ))}
         </div>
 
-        {/* Currently Learning */}
         <motion.div variants={fadeUp} custom={4} style={{
           marginTop: 24, background: `${colors.gold}0f`, border: `1px solid ${colors.gold}33`,
           borderRadius: 12, padding: "20px 28px", display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap",
@@ -867,7 +953,10 @@ function Contact() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
-  const handleSubmit = () => { if (form.name && form.email && form.message) setSent(true); };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (form.name && form.email && form.message) setSent(true);
+  };
 
   const links = [
     { label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}`, icon: "✉", color: colors.cyan },
