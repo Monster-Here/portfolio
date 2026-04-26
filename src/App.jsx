@@ -96,7 +96,7 @@ const PROJECTS = [
     id: 3, title: "Timetable Generator", status: "live",
     description: "Dynamic scheduling tool that processes user inputs to auto-generate optimized timetables. Handles conflict detection and priority-based slot assignment.",
     tech: ["React", "Python", "Flask", "PostgreSQL"],
-    github: "https://github.com/Monster-Here/timetable-generator", demo: "https://timetable-generator-5lxk.onrender.com", highlight: colors.green,,
+    github: "https://github.com/Monster-Here/timetable-generator", demo: "https://timetable-generator-5lxk.onrender.com", highlight: colors.green,
   },
   {
     id: 4, title: "AI Resume Builder", status: "soon",
