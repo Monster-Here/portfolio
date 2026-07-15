@@ -84,19 +84,19 @@ const PROJECTS = [
     id: 1, title: "Task Manager App", status: "live",
     description: "Full-stack task management system with secure JWT authentication, complete CRUD operations, and PostgreSQL as the primary data store. Built for real-world productivity workflows.",
     tech: ["React", "Flask", "PostgreSQL", "JWT"],
-    github: CONTACT.github, demo: "#", highlight: colors.cyan,
+    github: null, demo: null, highlight: colors.cyan,
   },
   {
     id: 2, title: "Expense Tracker", status: "live",
     description: "Interactive expense tracking application featuring an analytics dashboard with visual breakdowns, category tagging, and monthly spending summaries.",
     tech: ["React", "Flask", "SQLite", "Chart.js"],
-    github: CONTACT.github, demo: "#", highlight: colors.purple,
+    github: null, demo: null, highlight: colors.purple,
   },
   {
     id: 3, title: "Timetable Generator", status: "live",
     description: "Dynamic scheduling tool that processes user inputs to auto-generate optimized timetables. Handles conflict detection and priority-based slot assignment.",
     tech: ["React", "Python", "Flask", "PostgreSQL"],
-    github: CONTACT.github, demo: "#", highlight: colors.green,
+    github: "https://github.com/Monster-Here/timetable-generator", demo: "https://timetable-generator-5lxk.onrender.com", highlight: colors.green,
   },
   {
     id: 4, title: "AI Resume Builder", status: "soon",
