@@ -173,7 +173,7 @@ function SectionTitle({ children }) {
     <h2 style={{
       fontFamily: "'Syne',serif", fontSize: "clamp(36px,6vw,64px)",
       fontWeight: 800, letterSpacing: "-0.03em", color: colors.text,
-      marginBottom: 60, lineHeight: 1,
+      marginBottom: 36, lineHeight: 1,
     }}>
       {children}
     </h2>
@@ -486,7 +486,7 @@ function About() {
   ];
 
   return (
-    <section id="about" ref={ref} style={{ padding: "80px clamp(20px,8vw,120px)", position: "relative" }}>
+    <section id="about" ref={ref} style={{ padding: "60px clamp(20px,8vw,120px) 40px", position: "relative" }}>
       <GlowOrb x="90%" y="50%" color={colors.purple} size={500} opacity={0.05} />
       <motion.div variants={stagger} initial="hidden" animate={inView ? "visible" : "hidden"}>
         <motion.div variants={fadeUp}>
@@ -669,7 +669,7 @@ function Education() {
 
   return (
     <section id="education" ref={ref} style={{
-      padding: "80px clamp(20px,8vw,120px)", position: "relative",
+      padding: "60px clamp(20px,8vw,120px) 40px", position: "relative",
       background: `linear-gradient(to bottom, transparent, ${colors.surface}33, transparent)`,
     }}>
       <GlowOrb x="15%" y="60%" color={colors.purple} size={500} opacity={0.05} />
@@ -773,7 +773,7 @@ function Skills() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" ref={ref} style={{ padding: "80px clamp(20px,8vw,120px)", position: "relative" }}>
+    <section id="skills" ref={ref} style={{ padding: "60px clamp(20px,8vw,120px) 40px", position: "relative" }}>
       <motion.div variants={stagger} initial="hidden" animate={inView ? "visible" : "hidden"}>
         <motion.div variants={fadeUp}>
           <SectionLabel>{"// 03 — Skills"}</SectionLabel>
@@ -927,7 +927,7 @@ function Projects() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <section id="projects" ref={ref} style={{
-      padding: "80px clamp(20px,8vw,120px)", position: "relative",
+      padding: "60px clamp(20px,8vw,120px) 40px", position: "relative",
       background: `linear-gradient(to bottom, transparent, ${colors.surface}22, transparent)`,
     }}>
       <GlowOrb x="20%" y="50%" color={colors.cyan} size={500} opacity={0.05} />
@@ -966,7 +966,7 @@ function Contact() {
   ];
 
   return (
-    <section id="contact" ref={ref} style={{ padding: "80px clamp(20px,8vw,120px)", position: "relative" }}>
+    <section id="contact" ref={ref} style={{ padding: "60px clamp(20px,8vw,120px) 40px", position: "relative" }}>
       <GlowOrb x="80%" y="40%" color={colors.cyan} size={400} opacity={0.06} />
       <motion.div variants={stagger} initial="hidden" animate={inView ? "visible" : "hidden"}>
         <motion.div variants={fadeUp}>
