@@ -44,7 +44,7 @@ const EDUCATION = [
     sub: "PG",
     institution: "Krupanidhi College of Management",
     location: "Bengaluru, Karnataka",
-    period: "2023 — Present",
+    period: "2025 — Present",
     status: "current",
     icon: "◈",
     color: colors.cyan,
@@ -60,7 +60,7 @@ const EDUCATION = [
     sub: "UG",
     institution: "GIET Degree College",
     location: "Rajamahendravaram, Andhra Pradesh",
-    period: "2020 — 2023",
+    period: "2022 — 2025",
     status: "completed",
     icon: "◉",
     color: colors.purple,
@@ -350,7 +350,7 @@ function Hero() {
           AVAILABLE FOR WORK
         </motion.div>
 
-        <div style={{
+        <h1 style={{
           fontFamily: "'Syne',serif", fontSize: "clamp(52px,10vw,110px)",
           fontWeight: 800, lineHeight: 0.95, letterSpacing: "-0.04em", marginBottom: 22,
         }}>
@@ -363,7 +363,7 @@ function Hero() {
               </motion.div>
             </div>
           ))}
-        </div>
+        </h1>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
@@ -486,11 +486,11 @@ function About() {
   ];
 
   return (
-    <section id="about" ref={ref} style={{ padding: "120px clamp(20px,8vw,120px)", position: "relative" }}>
+    <section id="about" ref={ref} style={{ padding: "80px clamp(20px,8vw,120px)", position: "relative" }}>
       <GlowOrb x="90%" y="50%" color={colors.purple} size={500} opacity={0.05} />
       <motion.div variants={stagger} initial="hidden" animate={inView ? "visible" : "hidden"}>
         <motion.div variants={fadeUp}>
-          <SectionLabel>// 01 — About</SectionLabel>
+          <SectionLabel>{"// 01 — About"}</SectionLabel>
           <SectionTitle>The Developer<br /><span style={{ color: colors.cyan }}>Behind the Code</span></SectionTitle>
         </motion.div>
 
@@ -669,13 +669,13 @@ function Education() {
 
   return (
     <section id="education" ref={ref} style={{
-      padding: "120px clamp(20px,8vw,120px)", position: "relative",
+      padding: "80px clamp(20px,8vw,120px)", position: "relative",
       background: `linear-gradient(to bottom, transparent, ${colors.surface}33, transparent)`,
     }}>
       <GlowOrb x="15%" y="60%" color={colors.purple} size={500} opacity={0.05} />
       <motion.div variants={stagger} initial="hidden" animate={inView ? "visible" : "hidden"}>
         <motion.div variants={fadeUp}>
-          <SectionLabel>// 02 — Education</SectionLabel>
+          <SectionLabel>{"// 02 — Education"}</SectionLabel>
           <SectionTitle>Academic<br /><span style={{ color: colors.cyan }}>Journey</span></SectionTitle>
         </motion.div>
 
@@ -773,10 +773,10 @@ function Skills() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" ref={ref} style={{ padding: "120px clamp(20px,8vw,120px)", position: "relative" }}>
+    <section id="skills" ref={ref} style={{ padding: "80px clamp(20px,8vw,120px)", position: "relative" }}>
       <motion.div variants={stagger} initial="hidden" animate={inView ? "visible" : "hidden"}>
         <motion.div variants={fadeUp}>
-          <SectionLabel>// 03 — Skills</SectionLabel>
+          <SectionLabel>{"// 03 — Skills"}</SectionLabel>
           <SectionTitle>My Tech<br /><span style={{ color: colors.cyan }}>Arsenal</span></SectionTitle>
         </motion.div>
 
@@ -927,13 +927,13 @@ function Projects() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <section id="projects" ref={ref} style={{
-      padding: "120px clamp(20px,8vw,120px)", position: "relative",
+      padding: "80px clamp(20px,8vw,120px)", position: "relative",
       background: `linear-gradient(to bottom, transparent, ${colors.surface}22, transparent)`,
     }}>
       <GlowOrb x="20%" y="50%" color={colors.cyan} size={500} opacity={0.05} />
       <motion.div variants={stagger} initial="hidden" animate={inView ? "visible" : "hidden"}>
         <motion.div variants={fadeUp}>
-          <SectionLabel>// 04 — Projects</SectionLabel>
+          <SectionLabel>{"// 04 — Projects"}</SectionLabel>
           <SectionTitle>Things I've<br /><span style={{ color: colors.cyan }}>Built</span></SectionTitle>
           <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 16, color: colors.textMuted, marginBottom: 60 }}>
             Real-world projects with full stack architecture
@@ -966,11 +966,11 @@ function Contact() {
   ];
 
   return (
-    <section id="contact" ref={ref} style={{ padding: "120px clamp(20px,8vw,120px)", position: "relative" }}>
+    <section id="contact" ref={ref} style={{ padding: "80px clamp(20px,8vw,120px)", position: "relative" }}>
       <GlowOrb x="80%" y="40%" color={colors.cyan} size={400} opacity={0.06} />
       <motion.div variants={stagger} initial="hidden" animate={inView ? "visible" : "hidden"}>
         <motion.div variants={fadeUp}>
-          <SectionLabel>// 05 — Contact</SectionLabel>
+          <SectionLabel>{"// 05 — Contact"}</SectionLabel>
           <SectionTitle>Let's Build<br /><span style={{ color: colors.cyan }}>Something</span></SectionTitle>
           <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 16, color: colors.textMuted, marginBottom: 60, maxWidth: 480 }}>
             I'm open to collaboration, freelance projects, and full-time opportunities. Let's connect.
