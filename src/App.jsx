@@ -102,7 +102,7 @@ const PROJECTS = [
     id: 4, title: "AI Portfolio Builder", status: "live",
     description: "A space-inspired, zero-gravity portfolio generator. Ingest a GitHub username, select repositories floating in zero gravity, and instantly preview and deploy a custom portfolio site to Vercel.",
     tech: ["React", "Vite", "Tailwind CSS", "Framer Motion", "GitHub API", "Capacitor"],
-    github: "https://github.com/Monster-Here/ai-portfolio-builder", demo: "https://github.com/Monster-Here/ai-portfolio-builder", highlight: colors.gold,
+    github: "https://github.com/Monster-Here/ai-portfolio-builder", demo: "http://localhost:5173/", highlight: colors.gold,
   },
 ];
 
