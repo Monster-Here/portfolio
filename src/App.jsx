@@ -99,10 +99,10 @@ const PROJECTS = [
     github: "https://github.com/Monster-Here/timetable-generator", demo: "https://timetable-generator-5lxk.onrender.com", highlight: colors.green,
   },
   {
-    id: 4, title: "AI Resume Builder", status: "soon",
-    description: "AI-powered resume builder that generates professional, tailored content using language models. Smart section suggestions and real-time preview.",
-    tech: ["React", "OpenAI API", "Flask", "PostgreSQL"],
-    github: null, demo: null, highlight: colors.gold,
+    id: 4, title: "AI Portfolio Builder", status: "live",
+    description: "A space-inspired, zero-gravity portfolio generator. Ingest a GitHub username, select repositories floating in zero gravity, and instantly preview and deploy a custom portfolio site to Vercel.",
+    tech: ["React", "Vite", "Tailwind CSS", "Framer Motion", "GitHub API", "Capacitor"],
+    github: "https://github.com/Monster-Here/ai-portfolio-builder", demo: "https://github.com/Monster-Here/ai-portfolio-builder", highlight: colors.gold,
   },
 ];
 
